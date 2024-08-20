@@ -50,6 +50,8 @@ Resources:
       Runtime: java17
       Architectures:
         - x86_64
+      Role:
+        Fn::Sub: 'arn:aws:iam::${AWS::AccountId}:role/ogata-lambdaExecutionRole'
       MemorySize: 512
       Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
         Variables:
