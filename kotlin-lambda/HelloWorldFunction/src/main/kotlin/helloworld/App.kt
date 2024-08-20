@@ -9,6 +9,8 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.net.URL
 
+
+
 class App : RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     override fun handleRequest(input: APIGatewayProxyRequestEvent, context: Context): APIGatewayProxyResponseEvent {
@@ -46,3 +48,35 @@ class App : RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseE
         }
     }
 }
+
+//package helloworld
+//
+//import org.springframework.boot.autoconfigure.SpringBootApplication
+//import org.springframework.boot.runApplication
+//import org.springframework.context.annotation.Bean
+//import org.springframework.web.bind.annotation.GetMapping
+//import org.springframework.web.bind.annotation.RestController
+//import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent
+//import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent
+//import org.springframework.cloud.function.adapter.aws.SpringBootRequestHandler
+//
+//@SpringBootApplication
+//
+//class App {
+//    @Bean
+//    fun hello() = { input: String -> "Hello, $input!" }
+//}
+//
+//fun main(args: Array<String>) {
+//    runApplication<App>(*args)
+//}
+//
+//class LambdaHandler : SpringBootRequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent>()
+//
+//@RestController
+//class HelloController {
+//    @GetMapping("/hello")
+//    fun hello(): String {
+//        return "Hello, World!"
+//    }
+//}
