@@ -53,10 +53,10 @@ jobs:
           pip install aws-sam-cli
       - name: SAM build
         run: sam build
-        working-directory: ./lambda-register
+        working-directory: ./kotlin-lambda
       - name: SAM deploy
         run: sam deploy --stack-name ogata-sam-lambda --s3-bucket ${{ vars.SAM_BUCKET_NAME }} --capabilities CAPABILITY_IAM --no-confirm-changeset --no-fail-on-empty-changeset
-        working-directory: ./lambda-register
+        working-directory: ./kotlin-lambda
 
   build-and-deploy-cloudfront:
     needs:
