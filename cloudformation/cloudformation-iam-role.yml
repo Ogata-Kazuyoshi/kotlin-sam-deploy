@@ -126,6 +126,16 @@ Resources:
                   - cloudfront:GetInvalidation
                   - cloudfront:ListInvalidations
                 Resource: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/*'
+        - PolicyName: IAMTaggingPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - iam:TagRole
+                  - iam:UntagRole
+                  - iam:ListRoleTags
+                Resource: '*'
 
   LambdaExecutionRoleWithDynamoDB:
     Type: AWS::IAM::Role
