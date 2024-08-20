@@ -32,6 +32,9 @@ iac-cloudfront-deploy:
 	--template-body file://cloudformation/cloudformation-cloudfront.yml \
 	--capabilities CAPABILITY_NAMED_IAM \
 	--parameters ParameterKey=WAFWebACLArn,ParameterValue=$(WAF_ACL_ARN) \
+	             ParameterKey=HostZone,ParameterValue=$(HOSTED_ZONE_ID) \
+	             ParameterKey=AcmArn,ParameterValue=$(ACM_CERTIFICATE_ARN_CLOUDFRONT) \
+	             ParameterKey=DomainName,ParameterValue=$(DOMAIN_NAME) \
 	--region ap-northeast-1
 
 iac-cloudfront-update:
@@ -39,4 +42,7 @@ iac-cloudfront-update:
 	--template-body file://cloudformation/cloudformation-cloudfront.yml \
 	--capabilities CAPABILITY_NAMED_IAM \
 	--parameters ParameterKey=WAFWebACLArn,ParameterValue=$(WAF_ACL_ARN) \
+                 ParameterKey=HostZone,ParameterValue=$(HOSTED_ZONE_ID) \
+                 ParameterKey=AcmArn,ParameterValue=$(ACM_CERTIFICATE_ARN_CLOUDFRONT) \
+                 ParameterKey=DomainName,ParameterValue=$(DOMAIN_NAME) \
 	--region ap-northeast-1
