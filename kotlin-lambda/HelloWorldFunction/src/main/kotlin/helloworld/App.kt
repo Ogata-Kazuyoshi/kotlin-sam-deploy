@@ -13,9 +13,10 @@ class App : RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseE
 
     override fun handleRequest(input: APIGatewayProxyRequestEvent, context: Context): APIGatewayProxyResponseEvent {
         val headers = mapOf(
-            "Content-Type" to "application/json",
-            "X-Custom-Header" to "application/json"
-        )
+        "Access-Control-Allow-Origin" to "*",
+        "Access-Control-Allow-Headers" to "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+        "Access-Control-Allow-Methods" to "GET,POST,PUT,DELETE,OPTIONS"
+    )
 
         val response = APIGatewayProxyResponseEvent().withHeaders(headers)
         println("バックエンドのここまでは届いてます")
